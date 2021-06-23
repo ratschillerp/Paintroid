@@ -43,7 +43,7 @@ pipeline {
             additionalBuildArgs '--build-arg USER_ID=$(id -u) --build-arg GROUP_ID=$(id -g) --build-arg KVM_GROUP_ID=$(getent group kvm | cut -d: -f3)'
             // Ensure that each executor has its own gradle cache to not affect other builds
             // that run concurrently.
-            args '--device /dev/kvm:/dev/kvm -m=6.5G'
+            args '--device /dev/kvm:/dev/kvm -m=14G'
             label useDebugLabelParameter('LimitedEmulator')
         }
     }
